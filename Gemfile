@@ -32,5 +32,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 gem "devise"
 
+
+#Nokogiri is required for the custom rewrite of readability
 gem "nokogiri"
 
