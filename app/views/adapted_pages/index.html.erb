@@ -1,0 +1,23 @@
+<h1>Listing adapted_pages</h1>
+
+<table>
+  <tr>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @adapted_pages.each do |adapted_page| %>
+  <tr>
+    <td><%= adapted_page.url %></td>
+    <td><%= link_to 'Show', adapted_page %></td>
+    <td><%= link_to 'Edit', edit_adapted_page_path(adapted_page) %></td>
+    <td><%= link_to 'Destroy', adapted_page, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Adapted page', new_adapted_page_path %>

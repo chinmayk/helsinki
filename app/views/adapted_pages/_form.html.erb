@@ -1,0 +1,21 @@
+<%= form_for(@adapted_page) do |f| %>
+  <% if @adapted_page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@adapted_page.errors.count, "error") %> prohibited this adapted_page from being saved:</h2>
+
+      <ul>
+      <% @adapted_page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

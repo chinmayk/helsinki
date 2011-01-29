@@ -1,0 +1,2 @@
+module AdaptedPagesHelper
+end

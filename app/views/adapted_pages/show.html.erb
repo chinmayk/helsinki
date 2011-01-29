@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Url:</b>
+  <%= @adapted_page.url %>
+  
+  <h3>Content</h3>
+  
+  <%= sanitize @page_text %>
+</p>
+
+
+<%= link_to 'Edit', edit_adapted_page_path(@adapted_page) %> |
+<%= link_to 'Back', adapted_pages_path %>
