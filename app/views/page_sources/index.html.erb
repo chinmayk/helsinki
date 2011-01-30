@@ -1,0 +1,27 @@
+<h1>Listing page_sources</h1>
+
+<table>
+  <tr>
+    <th>Url</th>
+    <th>Links path</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @page_sources.each do |page_source| %>
+  <tr>
+    <td><%= page_source.url %></td>
+    <td><%= page_source.links_path %></td>
+    <td><%= page_source.description %></td>
+    <td><%= link_to 'Show', page_source %></td>
+    <td><%= link_to 'Edit', edit_page_source_path(page_source) %></td>
+    <td><%= link_to 'Destroy', page_source, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Page source', new_page_source_path %>

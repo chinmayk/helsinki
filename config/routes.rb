@@ -1,5 +1,9 @@
 Helsinki::Application.routes.draw do
-  resources :adapted_pages
+  resources :page_sources
+
+  resources :adapted_pages do
+    get 'next_page', :on => :collection
+  end
 
   devise_for :users
 
@@ -53,6 +57,7 @@ Helsinki::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
    root :to => "adapted_pages#index"
+
 
   # See how all your routes lay out with "rake routes"
 

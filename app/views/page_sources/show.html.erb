@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Url:</b>
+  <%= @page_source.url %>
+</p>
+
+<p>
+  <b>Links path:</b>
+  <%= @page_source.links_path %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @page_source.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_page_source_path(@page_source) %> |
+<%= link_to 'Back', page_sources_path %>

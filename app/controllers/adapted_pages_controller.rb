@@ -14,7 +14,10 @@ class AdaptedPagesController < ApplicationController
   # GET /adapted_pages/1.xml
   def show
     @adapted_page = AdaptedPage.find(params[:id])
-
+    @title = "FIXME"
+    @logo_src = "FIXME"
+    @search_form = nil
+    
     @page_text = @adapted_page.get_page_content
     respond_to do |format|
       format.html # show.html.erb
@@ -81,4 +84,14 @@ class AdaptedPagesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def next_page
+    @adapted_page = AdaptedPage.get_next_page_for(nil)
+    
+    unless @adapted_page.nil?
+      redirect_to (@adapted_page)
+    end
+    
+  end
+  
 end
