@@ -12,19 +12,30 @@
 <body> 
 <!--Main page-->
 <div data-role="page" data-theme="b">
-	<div data-role="header">
-	</div><!-- /header -->
-  <%= yield %>
+<div data-role="header">
+ <h3>
+   Helsinki | 
+ <% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path) %>        
+<% else %>
+  <%= link_to('Login/Signup', new_user_session_path)  %>  
+<% end %>
+</h3>
+</div> 
 
+<div data-role="content">
+  <%= yield %>
+</div>
+	<div data-role="footer">
+    <%= yield :footer%>
+	</div>
 </div><!-- /page -->
 
 
 
 	<!-- /content -->
 
-	<div data-role="footer">
-		<h4>Page Footer</h4>
-	</div><!-- /header -->
+
 </div>
 </body>
 </html>	

@@ -46,4 +46,7 @@ Helsinki::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  #Default host for action-mailer
+  config.action_mailer.default_url_options = { :host =>'growing-winter-514.heroku.com' }
 end

@@ -16,7 +16,7 @@ class AdaptedPage < ActiveRecord::Base
   end
   
   
-  def self.get_next_page_for(user)
+  def self.get_next_page_for(user, next_index = 0)
     page_source = PageSource.first
     
     #Open up the page, and fetch a link. Then create an AdaptedPage for this page/or find it if it
@@ -24,7 +24,7 @@ class AdaptedPage < ActiveRecord::Base
     
     source_doc = Nokogiri::HTML(open(page_source.url))
     
-    page_link = source_doc.css(page_source.links_path).first
+    page_link = source_doc.css(page_source.links_path)[next_index]
     
     adapted_page = self.find_or_create_by_url(page_link[:href])
     

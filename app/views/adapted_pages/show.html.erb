@@ -6,14 +6,14 @@
 <p id="notice"><%= notice %></p>
     <% if @adapted_page.logo_src %>
     <div id="homeheader">
-      <h1 id="logo"><img src="<%=resolve(@adapted_page.logo_src, @adapted_page.url)%>" alt="Logo"> by Helsinki</h1>
+      <h1 id="logo"><img src="<%=resolve(@adapted_page.logo_src, @adapted_page.url)%>" alt="Logo"></h1>
     </div>
   <% end %>
   <div id="page-content">
   <%= sanitize @adapted_page.page_content %>
   </div>
-  <div data-role="footer">
+  <% content_for :footer do %>
     <h4>Switch to <%= link_to 'Original page', @adapted_page.url %> |
-<%= link_to 'Back', adapted_pages_path %> </h4>
-  </div>
+<%= link_to 'Next', next_page_adapted_pages_path %> </h4>
+  <% end %>
 

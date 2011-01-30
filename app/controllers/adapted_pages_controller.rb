@@ -1,4 +1,9 @@
 class AdaptedPagesController < ApplicationController
+  
+  #FIXME Turn on auth! 
+  # before_filter :authenticate_user! 
+  
+  
   # GET /adapted_pages
   # GET /adapted_pages.xml
   def index
@@ -82,11 +87,20 @@ class AdaptedPagesController < ApplicationController
   end
   
   def next_page
-    @adapted_page = AdaptedPage.get_next_page_for(nil)
+    session.inspect # force session load
+    if session.has_key? "next_page_index"
+        next_index = session["next_page_index"] 
+    else
+        next_index = 0
+    end
     
+    @adapted_page = AdaptedPage.get_next_page_for(nil, next_index)
+    
+    session["next_page_index"] = next_index + 1
     unless @adapted_page.nil?
       redirect_to (@adapted_page)
     end
+    
     
   end
   
