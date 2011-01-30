@@ -91,5 +91,6 @@ class PageSourcesController < ApplicationController
   def view_links
     @page_source = PageSource.find(params[:id])
     @links = @page_source.page_links 
+    session["page_source"] = params[:id]
   end
 end

@@ -98,7 +98,7 @@ class AdaptedPagesController < ApplicationController
     
     get_page_source
     
-    @adapted_page = AdaptedPage.get_next_page_for(nil, next_index, page_source)
+    @adapted_page = AdaptedPage.get_next_page_for(nil, next_index, @page_source)
     
     session["next_page_index"] = next_index + 1
     unless @adapted_page.nil?
