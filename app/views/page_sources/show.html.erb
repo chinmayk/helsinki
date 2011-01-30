@@ -15,7 +15,14 @@
   <%= @page_source.description %>
 </p>
 
-<%= link_to 'Choose this source', set_source_page_source_path(@page_source), "data-role"=>"button" %>
+<div data-role="controlgroup">
 
-<%= link_to 'Edit', edit_page_source_path(@page_source) %> |
-<%= link_to 'Back', page_sources_path %>
+<%= link_to 'Choose this source', set_source_page_source_path(@page_source), "data-role"=>"button", "data-theme"=>"a" %>
+<%= link_to 'View pages', view_links_page_source_path(@page_source), "data-role"=>"button", "data-theme"=>"b" %>
+</div>
+
+
+<div data-role="controlgroup" data-type="horizontal">
+<%= link_to 'Edit', edit_page_source_path(@page_source), "data-role"=>"button" -%> 
+<%= link_to 'Back', page_sources_path, "data-role"=>"button", "data-theme"=>"c" -%>
+</div>

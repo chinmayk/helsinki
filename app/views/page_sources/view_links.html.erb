@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+<ul data-role="listview">
+
+<% @links.each do |link| %>
+<li><%= link_to link.content, by_url_adapted_pages_path(:url=>link[:href])%></li>
+
+<% end %>
+
+</ul>

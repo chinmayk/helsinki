@@ -2,10 +2,12 @@ Helsinki::Application.routes.draw do
   resources :page_sources do
     #FIXME This should be POST
     get 'set_source', :on=>:member
+    get 'view_links', :on=>:member
   end
 
   resources :adapted_pages do
     get 'next_page', :on => :collection
+    get 'by_url', :on=>:collection
   end
   
   
@@ -61,7 +63,7 @@ Helsinki::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => "adapted_pages#index"
+   root :to => "page_sources#index"
 
 
   # See how all your routes lay out with "rake routes"

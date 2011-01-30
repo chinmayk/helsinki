@@ -12,8 +12,11 @@
 <body> 
 <!--Main page-->
 <div data-role="page" data-theme="b">
-	<div data-role="header">
-	</div><!-- /header -->
+<div data-role="header" data-position="inline" data-nobackbtn="true">
+  <%= link_to "Options", page_sources_path,  "data-icon"=>"gear", :class=>"ui-btn-left" %>
+  <h1>Helsinki</h1>
+<%= render :partial=>'devise/shared/sign_in_or_out' %>
+</div>
   <%= yield %>
 
 </div><!-- /page -->

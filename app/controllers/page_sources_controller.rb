@@ -87,4 +87,9 @@ class PageSourcesController < ApplicationController
     session["next_page_index"] = 0
     redirect_to next_page_adapted_pages_url
   end
+  
+  def view_links
+    @page_source = PageSource.find(params[:id])
+    @links = @page_source.page_links 
+  end
 end

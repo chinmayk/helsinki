@@ -22,9 +22,8 @@ class AdaptedPage < ActiveRecord::Base
     #Open up the page, and fetch a link. Then create an AdaptedPage for this page/or find it if it
     #exists. Return the page text.
     
-    source_doc = Nokogiri::HTML(open(page_source.url))
     
-    page_link = source_doc.css(page_source.links_path)[next_index]
+    page_link = page_source.get_link_by_index(next_index)
     
     adapted_page = self.find_or_create_by_url(page_link[:href])
     

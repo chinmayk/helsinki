@@ -5,11 +5,10 @@
 
 <p id="notice"><%= notice %></p>
 <%content_for :logo do %>
-    <% if @adapted_page.logo_src %>
-    <div id="homeheader">
-    <img src="<%=resolve(@adapted_page.logo_src, @adapted_page.url)%>" alt="Logo" /> by Helsinki
-    </div>
-<% end %>
+    <% if @adapted_page.logo_src %><img src="<%=resolve(@adapted_page.logo_src, @adapted_page.url)%>" alt="Logo" /> by Helsinki
+    <%else%>
+    Helsinki
+    <% end %>
   <% end %>
   <div id="page-content">
   <%= sanitize @adapted_page.page_content %>

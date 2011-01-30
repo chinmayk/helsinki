@@ -3,6 +3,7 @@ class AdaptedPagesController < ApplicationController
   #FIXME Turn on auth! 
   # before_filter :authenticate_user! 
   
+  before_filter :get_page_source, :only=>:show
   
   # GET /adapted_pages
   # GET /adapted_pages.xml
@@ -95,13 +96,7 @@ class AdaptedPagesController < ApplicationController
         next_index = 0
     end
     
-    if session.has_key? "page_source"
-        page_source = PageSource.find(session["page_source"]) 
-    else
-        page_source = PageSource.first
-    end
-    
-    
+    get_page_source
     
     @adapted_page = AdaptedPage.get_next_page_for(nil, next_index, page_source)
     
@@ -113,4 +108,20 @@ class AdaptedPagesController < ApplicationController
     
   end
   
+  def by_url
+    @url = params[:url]
+    @adapted_page = AdaptedPage.find_or_create_by_url(@url)
+    
+    redirect_to @adapted_page
+  end
+  
+  private
+  
+  def get_page_source
+    if session.has_key? "page_source"
+        @page_source = PageSource.find(session["page_source"]) 
+    else
+        @page_source = PageSource.first
+    end
+  end
 end
