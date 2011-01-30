@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title><%= yield :title %></title> 
+	
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css" />  
+
+<link rel="stylesheet" href="/mobile.css" />  
+	<script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script> 
+</head> 
+<body> 
+<!--Main page-->
+<div data-role="page" data-theme="b">
+	<div data-role="header">
+	</div><!-- /header -->
+  <%= yield %>
+
+</div><!-- /page -->
+
+
+
+	<!-- /content -->
+
+	<div data-role="footer">
+  <%= yield :footer %>
+	</div><!-- /header -->
+</div>
+</body>
+</html>	
