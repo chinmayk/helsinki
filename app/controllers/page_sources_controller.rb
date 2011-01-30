@@ -84,7 +84,7 @@ class PageSourcesController < ApplicationController
   def set_source
     session.inspect
     session["page_source"] = params[:id]
-    
+    session["next_page_index"] = 0
     redirect_to next_page_adapted_pages_url
   end
 end
