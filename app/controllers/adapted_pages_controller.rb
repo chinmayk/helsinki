@@ -95,7 +95,15 @@ class AdaptedPagesController < ApplicationController
         next_index = 0
     end
     
-    @adapted_page = AdaptedPage.get_next_page_for(nil, next_index)
+    if session.has_key? "page_source"
+        page_source = PageSource.find(session["page_source"]) 
+    else
+        page_source = PageSource.first
+    end
+    
+    
+    
+    @adapted_page = AdaptedPage.get_next_page_for(nil, next_index, page_source)
     
     session["next_page_index"] = next_index + 1
     unless @adapted_page.nil?

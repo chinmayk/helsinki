@@ -4,10 +4,12 @@
 
 
 <p id="notice"><%= notice %></p>
+<%content_for :logo do %>
     <% if @adapted_page.logo_src %>
     <div id="homeheader">
-      <h1 id="logo"><img src="<%=resolve(@adapted_page.logo_src, @adapted_page.url)%>" alt="Logo"></h1>
+    <img src="<%=resolve(@adapted_page.logo_src, @adapted_page.url)%>" alt="Logo" /> by Helsinki
     </div>
+<% end %>
   <% end %>
   <div id="page-content">
   <%= sanitize @adapted_page.page_content %>

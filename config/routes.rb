@@ -1,9 +1,14 @@
 Helsinki::Application.routes.draw do
-  resources :page_sources
+  resources :page_sources do
+    #FIXME This should be POST
+    get 'set_source', :on=>:member
+  end
 
   resources :adapted_pages do
     get 'next_page', :on => :collection
   end
+  
+  
 
   devise_for :users
 

@@ -14,6 +14,8 @@
 <div data-role="page" data-theme="b">
 <div data-role="header">
  <h3>
+   <%= yield :logo%>
+   <%= link_to "Change source", page_sources_path %>
  <% if user_signed_in? %>
   <%= link_to('Logout', destroy_user_session_path) %>        
 <% else %>

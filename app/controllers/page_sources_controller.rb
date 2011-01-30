@@ -80,4 +80,11 @@ class PageSourcesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def set_source
+    session.inspect
+    session["page_source"] = params[:id]
+    
+    redirect_to next_page_adapted_pages_url
+  end
 end

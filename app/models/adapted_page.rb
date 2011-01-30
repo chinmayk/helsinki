@@ -16,8 +16,8 @@ class AdaptedPage < ActiveRecord::Base
   end
   
   
-  def self.get_next_page_for(user, next_index = 0)
-    page_source = PageSource.first
+  def self.get_next_page_for(user, next_index = 0, page_source_id)
+    page_source = PageSource.find(page_source_id)
     
     #Open up the page, and fetch a link. Then create an AdaptedPage for this page/or find it if it
     #exists. Return the page text.
