@@ -13,7 +13,7 @@
   <%= sanitize @adapted_page.page_content %>
   </div>
   <% content_for :footer do %>
-    <h4>Switch to <%= link_to 'Original page', @adapted_page.url %> |
+    <h4><%= link_to 'Original page', @adapted_page.url %> |
 <%= link_to 'Next', next_page_adapted_pages_path %> </h4>
   <% end %>
 
