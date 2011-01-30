@@ -17,7 +17,6 @@ class AdaptedPagesController < ApplicationController
     @title = "FIXME"
     @logo_src = "FIXME"
     @search_form = nil
-    
     @page_text = @adapted_page.get_page_content
     respond_to do |format|
       format.html # show.html.erb
