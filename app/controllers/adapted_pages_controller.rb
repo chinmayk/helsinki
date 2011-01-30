@@ -19,6 +19,7 @@ class AdaptedPagesController < ApplicationController
   # GET /adapted_pages/1.xml
   def show
     @adapted_page = AdaptedPage.find(params[:id])
+    @adapted_page.recognize
     @search_form = nil
     respond_to do |format|
       format.html # show.html.erb

@@ -277,7 +277,7 @@ module Readability
       #remove all inline styling
       node[:style]='' unless node[:style].nil?
       #remove style for children too
-      node.css('*[@style]').each {|e| e[:style] = ''}
+      node.css('*[@style]').each {|e| e['style'] = ''}
       
       return node
       

@@ -6,7 +6,7 @@ class AdaptedPage < ActiveRecord::Base
   
   attr_accessor :logo_src, :title, :page_content
   
-  def after_initialize
+  def recognize
     @page_text = open(self.url).read
     @recognizer = HeuristicIdentifier.new(@page_text)
     
