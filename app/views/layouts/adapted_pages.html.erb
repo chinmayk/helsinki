@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-	<title><%= "by Helsinki" %></title> 
+	<title><%= yield :title %></title> 
 	
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css" />  
 
@@ -10,24 +10,12 @@
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script> 
 </head> 
 <body> 
-
-
 <!--Main page-->
 <div data-role="page" data-theme="b">
 	<div data-role="header">
 	</div><!-- /header -->
+  <%= yield %>
 
-	<% if @logo_src %>
-		<div id="homeheader">
-			<h1 id="logo"><img src="<%=resolve(@logo_src, @adapted_page.url)%>" alt="Logo"> by Helsinki</h1>
-		</div>
-	<% end %>
-	<div id="page-content">
-    <%= yield %>
-  </div>
-	<div data-role="footer">
-		<h4>Page Footer</h4>
-	</div><!-- /header -->
 </div><!-- /page -->
 
 

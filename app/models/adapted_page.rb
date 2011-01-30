@@ -1,12 +1,20 @@
 require 'readability'
 require 'open-uri'
+require 'content-identifier'
+
 class AdaptedPage < ActiveRecord::Base
   
-  def get_page_content
-    page_text = open(self.url).read
-
-    Readability::Document.new(page_text).content.to_html
+  attr_accessor :logo_src, :title, :page_content
+  
+  def after_initialize
+    @page_text = open(self.url).read
+    @recognizer = HeuristicIdentifier.new(@page_text)
+    
+    @logo_src = @recognizer.GetLogo
+    @page_content = Readability::Document.new(@page_text).content.to_html
+    @title = @recognizer.GetTitle
   end
+  
   
   def self.get_next_page_for(user)
     page_source = PageSource.first
